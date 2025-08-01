@@ -6,7 +6,6 @@
     <title>大帅比的个人网站</title>
     <style>
         .container {
-            width: 2000px;
             display: flex;
             gap: 12px;
             flex-wrap: wrap
@@ -36,8 +35,8 @@
 
         .message {
             border: 2px solid black;
-            padding: 2px;
-            margin: 0px;
+            padding: 1px;
+            margin: 1px;
             height: 80px;
         }
     </style>
@@ -46,16 +45,20 @@
 
 <body style=background-color:#66c8;>
     <!--网站头部-->
-    <div id="header" style=width:170px;height:70px;>
-        <h1 style=color:#4a89a8>大帅比<br>的个人网站</h1>
+    <div class="container" style=height:80px;>
+        <div style=width:190px>
+            <h1 style=color:#4a89a8>大帅比<br>的个人网站<h1>
+
+        </div>
+        <div><img src="Untitled 06-21-2025 09-35-46.png" style=width:150px></div>
     </div>
-    <div style=width:250px;>
+    <div>
         <p><span style=color:red;font-size:25px>恭喜你! ! ! ! ! !</span><br>发现了我的个人网站</p>
     </div>
     <!--快捷菜单-->
     <div id="menu" style=background-color:#66c6;height:100px>
         <p style=text-align:center;height:15px>超空间传送门</p>
-        <div class=" container" style=height:80px>
+        <div class=" container" style=height:80px;width:2000px>
             <div class="box">
                 <a href="#section1" class="padded-link">自我介绍</a>
                 <img src="u=10267460456117698056,12664663294786713748&fm=3008&app=3011&f=JPEG.jpg"
@@ -78,7 +81,7 @@
                     style=height:20px;width:15px>
             </div>
             <div class="box">
-                <a href="#section5" style=>敬请期待</a>
+                <a href="#section5" style=>凑数作</a>
                 <img src="u=10267460456117698056,12664663294786713748&fm=3008&app=3011&f=JPEG.jpg"
                     style=height:20px;width:15px>
             </div>
@@ -172,45 +175,57 @@
     </div>
     <!--区5-->
     <div id="section5">
-        <h2>敬请期待</h2>
-
+        <h2 style=height:10px>凑数作</h2>
+        <p>如你所见，这个板块是用来凑数的</p>
+        <button type="button" onclick="">开始凑数</button>
     </div>
     <!--区6-->
     <div id="section6">
         <h2>留言板</h2>
-        <!--留言输入区-->
-        <form id=messages>
-            <input type="text" name="mingzi" placeholder="输入名称" required>
-            <textarea type="">留个言吧，朋友</textarea>
-        </form>
-        <div>
 
-            <!--留言展示区-->
-            <div id="messagesContainer" class="solid" style=background-color:#66c4;height:1000px;width:700px>
+        <div>
+            <!--留言输入区-->
+            <input type="text" id="mingzi" placeholder="输入名称">
+            <textarea type="text" id="neirong" placeholder="留个言吧，朋友"></textarea>
+            <button type="button" onclick="function1()">点击提交</button>
+            <!--函数-->
+            <script>
+                function function1() {
+                    let name = document.getElementById("mingzi");
+                    let content = document.getElementById("neirong");
+                    var name1 = name.value;
+                    var content1 = content.value;
+                    var div = document.getElementById("messagesContainer");
+                    div.innerHTML += `<div class="message"><h3>${name1}</h3><p>${content1}</p></div>`
+                }   
+            </script>
+            <div class="container">
+                <!--留言展示区-->
+                <div id="messagesContainer" class="solid" style=background-color:#66c4;height:1000px;width:700px>
+                </div>
 
             </div>
         </div>
-    </div>
-    <!--过渡段-->
-    <div style:height:50px>
-        <p style=color:red;text-align:center;font-size:50px><i>帅比出品</i></p>
-    </div>
-    <!--网站底部-->
-    <div style=text-align:center;>
-        <div style=background-color:pink>
-            <a href="https://space.bilibili.com/1784646740">我的B站账号</a>
-            <img src="c2f6f7cb8c49b24a9e87cc62cd067640.jpeg" style=height:16px;width:16px>
+        <!--过渡段-->
+        <div style:height:50px>
+            <p style=color:red;text-align:center;font-size:50px><i>帅比出品</i></p>
         </div>
-        <div style=background-color:grey>
-            <a href="https://github.com/bigshuaibi1">我的github账号</a>
-            <img src="搜狗截图20250727192154.png" style=height:16px;width:16px>
+        <!--网站底部-->
+        <div style=text-align:center;>
+            <div style=background-color:pink>
+                <a href="https://space.bilibili.com/1784646740">我的B站账号</a>
+                <img src="c2f6f7cb8c49b24a9e87cc62cd067640.jpeg" style=height:16px;width:16px>
+            </div>
+            <div style=background-color:grey>
+                <a href="https://github.com/bigshuaibi1">我的github账号</a>
+                <img src="搜狗截图20250727192154.png" style=height:16px;width:16px>
+            </div>
+            <div style=background-color:gold>
+                <a href="https://www.bilibili.com/video/BV1GJ411x7h7?t=5.1">我的银行账户和密码</a>
+                <img src="0b10d584484d6b0a4b936e29dc1acae2.png" style=height:16px;width:16px>
+            </div>
         </div>
-        <div style=background-color:gold>
-            <a href="https://www.bilibili.com/video/BV1GJ411x7h7?t=5.1">我的银行账户和密码</a>
-            <img src="0b10d584484d6b0a4b936e29dc1acae2.png" style=height:16px;width:16px>
-        </div>
-    </div>
-    <time style=font-size:10px>上次修改时间：2025/7/29</time>
+        <time style=font-size:10px>上次修改时间：2025/7/30</time>
 
 </body>
 

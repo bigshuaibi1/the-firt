@@ -35,9 +35,14 @@
 
         .message {
             border: 2px solid black;
-            padding: 1px;
             margin: 1px;
-            height: 80px;
+            padding:0px;
+            background-color:#66c4;
+        }
+
+        .zhongdian {
+            color: red;
+            font-size: larger;
         }
     </style>
 </head>
@@ -45,7 +50,7 @@
 
 <body style=background-color:#66c8;>
     <!--网站头部-->
-    <div class="container" style=height:80px;>
+    <div class="container" style=height:85px;>
         <div style=width:190px>
             <h1 style=color:#4a89a8>大帅比<br>的个人网站<h1>
 
@@ -76,7 +81,7 @@
             </div>
             <!--第二行-->
             <div class="box">
-                <a href="#section4" class="padded-link">敬请期待</a>
+                <a href="#section4" class="padded-link">随便用来干点啥作</a>
                 <img src="u=10267460456117698056,12664663294786713748&fm=3008&app=3011&f=JPEG.jpg"
                     style=height:20px;width:15px>
             </div>
@@ -100,7 +105,12 @@
     <!--区1-->
     <div id="section1">
         <h2>自我介绍</h2>
-        <p class="p">宇宙中最帅的人类，名不告诉你，字无，号大帅比，笔名正革。爱好VOCALOID、科学、我自己、<s>活着</s>《活着》、等等……</p>
+        <p class="p">吾名<span class="zhongdian">正革</span>，
+            以<span class="zhongdian">帅逼</span>为职业，是掌握<span class="zhongdian">『史上最帅之外表』</span>与<span
+                class="zhongdian">『史上最强之内心』</span>
+            亚细亚洲首屈一指的<span class="zhongdian">全能之天才</span>，亦为无上奇迹之人。乃存在于世间两千载，纵横宇宙无人不知无人不晓的<span
+                class="zhongdian">传奇</span>，看破了一切虚伪终触及于真实的<span class="zhongdian">『真世（视）之人』</span>。
+            <br><br>• 比一切更大视为无穷，比无穷更大即为我。<br>• 若帅有极限，那必是我；若有人能超越这极限，那也必是我。
     </div>
     <!--区2-->
     <div id="section2">
@@ -151,7 +161,7 @@
             <div id="suijishu" class="box"></div>
             是你满意的IQ吗
             <button type="button" onclick="yes()">是</button>
-            <button type="button" onclick="no()">不是</button>
+            <button type="button" onclick="suijiIQ()">不是</button>
             <script>
                 let IQnumber = null
                 function suijiIQ() {
@@ -162,22 +172,48 @@
                 function yes() {
                     alert(`您的IQ为${IQnumber}`)
                 }
-                function no() {
-                    alert("请重新点击开始")
-                }
             </script>
         </div>
     </div>
     <!--区4-->
     <div id="section4">
-        <h2>敬请期待</h2>
-
+        <h2>随便用来干点啥作</h2>
+        <h3>音乐欣赏</h3>
     </div>
     <!--区5-->
     <div id="section5">
         <h2 style=height:10px>凑数作</h2>
         <p>如你所见，这个板块是用来凑数的</p>
-        <button type="button" onclick="">开始凑数</button>
+        <button type="button" onclick="function2()">开始凑数</button>
+        <button type="button" onclick="function3()">验证结果</button>
+        <div id="coushu">
+            <p>a=<input type="text" id="a"> b=<input type="text" id="b"></p>
+        </div>
+        <div id=coushuqu></div>
+        <script>
+            let shu = null
+            function function2() {
+                shu = Math.floor(Math.random() * 114514) + 1;
+                const div = document.getElementById("coushuqu");
+                div.innerHTML = `<div class="solid">
+                    <p>a+b=${shu}<br>请输入合适的a和b以凑出${shu}</br></p>
+                    <p></p>
+                    </div>`
+            };//生成随机数
+            function function3() {
+                let a1 = document.getElementById("a");
+                let b1 = document.getElementById("b");
+                let a = parseFloat(a1.value);
+                let b = parseFloat(b1.value);
+                let sum = a + b;
+                if (sum === shu) {
+                    alert("你可真是个天才↑")
+                } else {
+                    alert("你可真是个天才↓")
+                }
+            }
+
+        </script>
     </div>
     <!--区6-->
     <div id="section6">
@@ -185,26 +221,55 @@
 
         <div>
             <!--留言输入区-->
-            <input type="text" id="mingzi" placeholder="输入名称">
-            <textarea type="text" id="neirong" placeholder="留个言吧，朋友"></textarea>
+            <div>
+            <input type="text" id="name" placeholder="输入名称">
+            <textarea type="text" id="message" placeholder="留个言吧，朋友"></textarea>
             <button type="button" onclick="function1()">点击提交</button>
-            <!--函数-->
-            <script>
-                function function1() {
-                    let name = document.getElementById("mingzi");
-                    let content = document.getElementById("neirong");
-                    var name1 = name.value;
-                    var content1 = content.value;
-                    var div = document.getElementById("messagesContainer");
-                    div.innerHTML += `<div class="message"><h3>${name1}</h3><p>${content1}</p></div>`
-                }   
-            </script>
+            <button  type="button" onclick="function3()">清零</button>
+            </div>
             <div class="container">
                 <!--留言展示区-->
                 <div id="messagesContainer" class="solid" style=background-color:#66c4;height:1000px;width:700px>
                 </div>
 
             </div>
+            <!--程序-->
+            <script>
+                function function1() {
+                    const time =new Date();
+                    const year =time.getFullYear();
+                    const month=time.getMonth()+1;
+                    const date=time.getDate();
+                    const hour=time.getHours();
+                    const minute=time.getMinutes()<10 ?`0${time.getMinutes()}`:`${time.getMinutes()}`;
+                    const time1=`${year} ${month}.${date} ${hour}:${minute}`;//获取当前时间
+                    const name =document.getElementById("name").value.trim();
+                    const message=document.getElementById("message").value.trim();
+                    if(name===""||message===""){
+                        alert("名称和留言不能为空");
+                        return;
+                    }
+                    const messages=JSON.parse(localStorage.getItem("messages"))||[];
+                    messages.unshift({time1,name,message});
+                    localStorage.setItem("messages",JSON.stringify(messages));
+                    function2();
+                    document.getElementById('message').value = "";
+                }   
+                 function function2(){
+                    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+                    const div=document.getElementById("messagesContainer");
+                    div.innerHTML=messages.map(msg =>`<div class="message"><h3 style="margin:0;height:15px">${msg.name}</h3>
+                        <p style="font-size:10px">${msg.time1}</p>
+                        <p>${msg.message}</p></div>`).join("")
+                 }
+                 function function3(){
+                    localStorage.clear();
+                    window.location.reload();
+                 }
+                 window.onload =function2;
+                 
+                                  
+            </script>
         </div>
         <!--过渡段-->
         <div style:height:50px>
